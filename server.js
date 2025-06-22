@@ -1,5 +1,6 @@
 const cors = require('cors');
 const express = require('express');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
@@ -26,12 +27,13 @@ app.get('/', (req, res) => {
   res.send('Hello, backend world!');
 });
 
-/*
+
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log('✅ Connected to MongoDB Atlas'))
-.catch(err => console.error('❌ MongoDB connection error:', err));
-*/
+if (process.env.NODE_ENV !== 'test') {
+  mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ Connected to MongoDB Atlas'))
+  .catch(err => console.error('❌ MongoDB connection error:', err));
+}
 
 /*
 // Start server
