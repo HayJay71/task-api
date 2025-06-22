@@ -35,12 +35,12 @@ if (process.env.NODE_ENV !== 'test') {
   .catch(err => console.error('❌ MongoDB connection error:', err));
 }
 
-/*
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
-*/
+if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'lambda') {
+  // Only listen when not testing or running in Lambda
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}
 
 module.exports = app; // Export the app for AWS Lambda
