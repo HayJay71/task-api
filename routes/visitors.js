@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     await counter.save();
     res.json({ count: counter.count });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Could not count visitor' });
   }
 });

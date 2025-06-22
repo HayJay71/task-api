@@ -6,6 +6,7 @@ exports.getAllTasks = async (req, res) => {
       const tasks = await Task.find();
       res.status(200).json(tasks);
     } catch (err) {
+      console.error(err);      
       res.status(500).json({ error: 'Failed to fetch tasks' });
     }
 };  
@@ -22,6 +23,7 @@ exports.createTask = async (req, res) => {
       const savedTask = await task.save();
       res.status(201).json(savedTask);
     } catch (err) {
+      console.error(err);
       res.status(500).json({ error: 'Failed to create task' });
     }
 };  
@@ -41,6 +43,7 @@ exports.updateTask = async (req, res) => {
   
       res.status(200).json(updatedTask);
     } catch (err) {
+      console.error(err);
       res.status(500).json({ error: 'Failed to update task' });
     }
 };
@@ -55,6 +58,7 @@ exports.deleteTask = async (req, res) => {
   
       res.status(200).json({ message: 'Task deleted', task: deletedTask });
     } catch (err) {
+      console.error(err);
       res.status(500).json({ error: 'Failed to delete task' });
     }
 };

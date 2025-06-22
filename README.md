@@ -1,3 +1,5 @@
+![build](https://github.com/HayJay71/task-api/actions/workflows/ci.yml/badge.svg)
+
 # 🧠 Task API – Node.js + Express + MongoDB
 
 This is a simple RESTful Task API built with **Node.js**, **Express**, and **MongoDB Atlas**.  

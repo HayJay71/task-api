@@ -19,6 +19,7 @@ exports.signup = async (req, res) => {
 
     res.status(201).json({ token });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Signup failed' });
   }
 };
@@ -36,6 +37,7 @@ exports.login = async (req, res) => {
     const token = generateToken(user._id);
     res.status(200).json({ token });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Login failed' });
   }
 };

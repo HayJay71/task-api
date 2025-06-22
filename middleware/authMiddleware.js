@@ -15,6 +15,7 @@ const authMiddleware = (req, res, next) => {
     req.user = decoded; // makes req.user.id available in routes
     next();
   } catch (err) {
+    console.error(err);
     return res.status(401).json({ error: 'Invalid token' });
   }
 };
