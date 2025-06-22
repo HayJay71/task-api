@@ -35,6 +35,7 @@ if (process.env.NODE_ENV !== 'test') {
   .catch(err => console.error('❌ MongoDB connection error:', err));
 }
 
+// Start server
 if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'lambda') {
   // Only listen when not testing or running in Lambda
   const PORT = process.env.PORT || 3000;
