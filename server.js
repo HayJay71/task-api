@@ -36,8 +36,8 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 // Start server
-if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'lambda') {
-  // Only listen when not testing or running in Lambda
+if (process.env.NODE_ENV !== 'test' && process.env.AWS_LAMBDA_FUNCTION_NAME === undefined) {
+  // Only listen locally (not in test, not in Lambda)
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
